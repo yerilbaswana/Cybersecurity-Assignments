@@ -1,5 +1,5 @@
 1. Topic - WPA2 Cracking
-2. Observations - WPA2 can easily be cracked using a tool called aircrack-ng. 
+2. Observations - WPA2 can easily be cracked using a tool called aircrack-ng.
   This is possible due to the handshake which happens during the authentication procedure. 
   It is also possbile to do denial of service attack by using deauth commands from aircrack-ng.
   Finally, a local database of passwords is used to crack the handshake thus revealing the password.
@@ -9,6 +9,7 @@
   Also, deauthentication attack is also not possible on WPA3 due to encrypted management frames being present.
 4. Conclusion - In this assignment, vulnerabilities of WPA2 are exposed and shown how they can be exploited.
   It shows how the 4 way handshake during authentication procedure can be captured and later an offline dictionary attack can be used to get the password.
+  We use aircrack-ng for the purpose as it's optimised for the purpose. Other tools like Hashcat and John the Ripper can also be used.
   It can be avoided by keeping complex passwords which reduces the chances of password being in the hacker's password databases.
   Another solution is using WPA3 which was introduced in 2018. It avoids the above attack by having a dragonfly handshake. 
   It also avoids deauthentication attack by having encrypted management frames. 
