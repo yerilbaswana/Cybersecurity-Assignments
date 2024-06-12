@@ -1,1 +1,22 @@
-Topic - Brute force attack using John the Ripper
+1.  Topic - Brute force attack using John the Ripper
+2.  Observations - 
+    a. A zip file named passwds.zip which contained hashed passwords was used. 
+    b. Used zip2john to get the hash from the zip file and stored it into a txt file named passwds.txt for it to be decrypted.
+    c. The hashes were then brute forced to get the result. Incremental mode was also used which uses every possible combination at expense of time.
+    d. Also showed that John the ripper can be used for other hash algorithms as well such as SHA-256, MD5, etc. 
+    e. A dictionary attack is also possible using a wordlist for the same instead of using incremental mode thus saving time.
+    f. The performance of John the Ripper is highly dependent on the complexity of the hashes. 
+    g. Simple passwords were cracked easily and in less time but, complex passwords took longer durations and in some cases it wasn't able to crack the passwords (for example - johntheripper12345)
+3.  Inferences - 
+    a. John the Ripper provides an efficient and easy way to crack hashes of various kinds easily. 
+    b. It is also able to automcatically identify hash formats making the process easier.
+    c. The complexity and the length of a password greater affects the performance of the tool.
+        In various cases where the password is long and complex it isn't able to crack the hash altogether, example - johntheripper12345.
+    d. The resource utilisation is high as expected from a brute force attack thus, a better system will provide faster results.
+    e. The perfromance of the tool is also dependent on the hash algorithm being used.
+    f. One way to avoid one's password or hash from this kind of attack is by having a complex and long password and ensuring the password hygiene standards.
+4.  Conclusion - 
+    a. John the Ripper is a great tool for brute forcing weak passwords even though the performance is greatly affected by complexity and length along with the hash algo being used.
+    b. This assignment reinforces the need for having complex and long passwords according to password hygiene standards. 
+    c. This assignment also reinforces need for regularly updating passwords to avoid attacks.
+    d. It also reinforces using better and newer hash algorithms such as SHA-256 and Argon2.
