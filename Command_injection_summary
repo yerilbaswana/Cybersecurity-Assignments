@@ -1,0 +1,20 @@
+1.  Topic - Command injection in DVWA: Remotely, find out the user of the web service on the OS and the machine's hostname via RCE
+2.  Observations - 
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low difficulty, there is no input sanitisation allowing direct injection using all escape characters such as &, |, ;.
+    c. At medium difficukty, the developer implements some form of input sanitisation but as noticed from the source code, it isn't 
+        enough making injection possible using certain escape characters such as &.
+    d. At high difficulty, the developer has implemented stricter sanitisation but has made some typos as noticed in source code, 
+        thus injection is still possible using |.
+    e. At each difficulty, it was possible to succefully inject commands and execute them at the privilege level of the web server, 
+        thus getting the user of the web service and the hostname of the machine.
+3.  Inferences - 
+    a. As the input sanitisation improved, the chances of a command injection attack reduced and made it difficult.
+    b. Thus, input sanitisation makes for a good solution for command injection.
+    c. Command injection can lead to severe consequences, including unauthorized access to sensitive data, system compromise, and to 
+        other network resources.
+    d. The consequences increase substantially if a server is running on elevated privileges.
+4. Conclusion -  
+    a. Input validation and sanitisation are necessary to avoid command injection.
+    b. Principle of least privilege should also be implemented to ensure that less amount of privileged information can be accessed 
+        assuming a command injection does succeed.
