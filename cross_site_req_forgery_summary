@@ -1,0 +1,35 @@
+1.  Topic - Cross site request forgery (CSRF): Task is to make the current user change their own password, without them knowing 
+about their actions, using a CSRF attack.
+
+2.  Observations: 
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low difficulty, there were no restrictions to a CSRF attack, therefore a malicious link was used to conduct the attack and 
+        successfully change the password
+    c. At medium difficulty, the developer has added a referrer field and allows a request if it's coming from the same domain. There are 
+        two main solutions to this, first was to add the current domain as referrer by capturing the request using ZAP. Second, was to 
+        use another vulnerability such as XSS to insert the request and thus, the referrer is set as the current domain.
+    d. At high difficulty, the application implemented strong anti-CSRF measures, including unique tokens for each session and form.
+        For this, the CSRF token had to be added to the request for it to be executed. Due to Same origin principle, the code also had 
+        to be executed on the server side so that it had the correct CSRF token and didn't give DOMexception due to it being a cross 
+        origin object. This had to be done along with another vulnerability such as file upload which is what was done. The user can 
+        then be redirected to the location of the file uploaded and then, the script was executed and the password was changed.
+
+3. Inferences:
+    a. As the difficulty increased, other vulnerabilities were exploited to make CSRF attack possible. Thus, regular auditing of web 
+        applications will help with reducing overall risk as well as risk of CSRF attacks and the potential damage it can cause.
+    b. CSRF can lead to severe consequences, such as unauthorized actions on user accounts, data breaches, and further exploitation of 
+        other vulnerabilities.
+    c. Having a CSRF token as well as a referrer would make a CSRF attack very difficult to perform thus, it should be implemented in all
+        web applications.
+    d. Also, for further protection in sensitive cases such as password change portals, other measures such as mentioning old password or 
+        asking for an OTP would further help to avoid CSRF attacks.
+
+4. Conclusion:
+    a. CSRF can lead to severe consequences such as complete compromise of the web application, if the victim is an administrative 
+        account then gaining privileges or assuming identity, bypassing protection mechanism, reading or modifying application data, 
+        denial of service (Dos): crash, exit, or restart.
+    b. Implementing robust anti-CSRF measures, such as unique tokens for each session and form, is essential to prevent CSRF attacks.
+    c. Validating tokens server-side ensures that only legitimate requests are processed.
+    d. Adopting security best practices, including proper session management and token validation, ensures that even if an attack is 
+        attempted, it is unlikely to succeed.
+    e. Regularly updating and auditing web applications for vulnerabilities can help identify and mitigate risks promptly.
