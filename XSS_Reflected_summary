@@ -1,1 +1,22 @@
-
+1.  Topic - Refleced Cross site scripting(XSS): Steal the cookie of a logged in user.
+2.  Observations -
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low security level, simple XSS payloads containing script tags were able to get the cookie and send it to the server.
+    c. At medium security level, the developer ignored case sensitivity in removing script tags, therefore, again script tags 
+        were able to get the cookie and send it to the server.
+    d. At high security level, the developer has enabled input sanitisation and has disabled all Javascript by removing pattern 
+        "<s*c*r*i*p*t>".
+    e. In each case, the cookie was received on the server we had made at port 1337.
+3.  Inferences - 
+    a. It requires social engineering such as sending emails or chats containing the link for this attack to work, making it limited 
+        in it's use especially when the victim is slightly aware about good cybersecurity practices.
+    b. It can lead to severe consequences such as data theft, data manipulation, denial of service, malware distribution, etc.
+    c. It can be avoided by input sanitisation and validation and ensuring session cookies are marked with the HttpOnly attribute to 
+        prevent access from JavaScript.
+4.  Conclusions - 
+    a. This attack is used for stealing session cookies, phishing attacks, denial of service attack, keylogging, malware distribution, 
+        stealing data, etc.
+    b. It can be avoided by input sanitisation & validation, ensuring session cookies are marked with the HtppOnly attribute to prevent
+        access from JavaScript, using secure libraries and frameworks which provide XSS protection, implementing CSP, regular security 
+        testing, output encoding, etc
+    c. One main thing limiting the usage of this attack is the need for social engineering.
