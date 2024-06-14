@@ -1,0 +1,26 @@
+1.  Topic - SQL injection: There are 5 users in the database with ids from 1 to 5, steal their passwords using SQLi.
+2.  Observations - 
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low difficulty, user input was directly concatenated into SQL queries without any sanitization, allowing 
+        for straightforward SQL injection. Common attack vectors, such as ' OR '1'='1, were used to bypass 
+        authentication and retrieve all users and their passwords.
+    c. At medium difficulty, some SQLi protection is in place and the text box has been replaced by a droplist, but 
+        still it's possible to inject queries making it possible to get the password hashes.
+    d. At high difficulty, the application used prepared statements and parameterized queries, reducing 
+        the risk of SQL injection, but still injection is possible.
+    e. The password hashes were then identified using hash-identifier as MD5 and then cracked using John the Ripper.
+3.  Inferences - 
+    a. As the difficulty increased, more provisions were in place to avoid SQL injection.
+    b. It is extremely necessary to have strict provisions against SQLi as privileged information of users can get compromised.
+    c. Also, the passwords set up by the users should have some requirements to maintain high strength of passwords to avoid brute force
+        attacks on the hashes to get the password. The password in the assignment were very easy and short, making it easy to brute force.
+    d. Proper input validation and sanitisation can help with avoiding SQLi.
+    e. Implementing parameterised queries ensures that the query and the user input is separated ensuring that injection doesn't happen.
+4.  Conclusions - 
+    a. SQL injection can lead to severe consequences, such as data breach leading to leakage or unauthorised access, data manipulation, 
+        denial of service, server shell access, etc. 
+    b. SQLi can be avoided by following measures:
+        i.   Implementing prepared queries
+        ii.  Input validation and sanitisation
+        iii. Least privilege
+        iv.  Regular security audits
