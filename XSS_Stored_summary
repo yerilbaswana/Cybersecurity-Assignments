@@ -1,1 +1,24 @@
-
+1.  Topic - Stored Cross-site scripting(XSS): Redirect everyone to a website of your choosing.
+2.  Observations - 
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low security level, simple XSS payloads containing script tags were used to redirect every user that visits the site to youtube.
+    c. At medium security level, the developer ignored case sensitivity in removing script tags, therefore, again script tags 
+        were able to redirect everyone.
+    d. At high security level, the developer has enabled input sanitisation and has disabled all Javascript by removing pattern 
+        "<s*c*r*i*p*t>". So, instead of using script tags, img tag was used to get the same result.
+3.  Inferences -  
+    a. Stored XSS is especially dangerous as it persists in the system servers and thus affects every user that visits the website. This
+        can lead to widespread exploitation and severe security breaches.
+    b. Users are at significant risk when visiting pages with stored XSS vulnerabilities, as malicious scripts can steal sensitive data 
+        or perform actions on behalf of the user without their knowledge.
+    c. Stored XSS can also be used to spread malware thus acting as a malware distributor.
+    d. The chances of the attack can be reduced by input validation and sanitisation, using security libraries and frameworks which 
+        already have measures to reduce chances of a XSS attack, marking cookies with the HttpOnly attribute to prevent JavaScript from 
+        accessing them.
+4. Conclusions - 
+    a. The main issue with stored XSS is that it is stored in the servers and affects each and every user leading to widespread issues.
+    b. Stored XSS attacks are usually used for session hijacking, credential theft, malware distribution, data theft, keylogging, 
+        privilege escaltion, clickjacking, etc. All this can lead to very severe consequences.
+    c. The chances of the attack can be reduced by input validation and sanitisation, using security libraries and frameworks which 
+        already have measures to reduce chances of a XSS attack, regular security testing, marking cookies with the HttpOnly 
+        attribute to prevent JavaScript from accessing them. 
