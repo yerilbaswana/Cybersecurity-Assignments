@@ -1,0 +1,21 @@
+1.  Task - Automated network packet analysis
+    a. Capture packets live upto a certain packet count.
+    b. Analyze the captured packets to extract relevant information such as source and destination IP addresses, protocols used, and ports.
+2.  Observations - 
+    a. The packet count was set to 100 so 100 packets were captured.
+    b. Majority of traffic was HTTP, HTTPS, DNS related, along with some TCP & UDP packets.
+    c. Captured packets showed various source and destination IP addresses, indicating communication with multiple servers and clients.
+        Some IPs were encountered more frequently signifying DNS servers and devices.
+    d. The source and destination ports were also captured.
+    e. No packets were flagged as anomalous.
+3. Inferences - 
+    a. The network traffic patterns suggested typical user behavior such as web browsing and DNS lookups.
+    b. Frequent communication with certain IP addresses and a lot of HTTP & HTTPS requests suggested routine activities like accessing 
+        popular websites.
+    c. There were no unusual port numbers or IP addresses which suggested any anomalous behaviour.
+4.  Conclusions - 
+    a. Automated tools provide visibility into ongoing network activities, helping administrators understand and monitor network usage.
+    b. Automated analysis can help detect unusual or potentially malicious activities, such as unexpected ports or communication with 
+        unfamiliar IP addresses.
+    c. Implementing such automated analysis scripts can enhance continuous monitoring efforts, allowing for real-time detection and 
+        response to network issues.
