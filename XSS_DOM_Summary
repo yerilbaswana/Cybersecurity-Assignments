@@ -1,1 +1,23 @@
-1. Topic - 
+1.  Topic - DOM based Cross site scripting(XSS): Run your own Javascript in another uesr's browser, ues this to steal cookie of a logged-in 
+user
+2.  Observations - 
+    a. The difficulty was set to Low, Medium and High for testing purposes.
+    b. At low security level, simple XSS payloads containing script tags were able to get the cookie and send it to the server as there was
+        on input sanitisation or validation.
+    c. At medium security level, developer had added simple pattern matching to remove any references to "<script>" to disable any JavaScript.
+        So, we used img src tag along with onerror event which would get triggered every time as we don't provide a source.
+    d. At high security level, developer had white listed only the allowed languages. So, if there was anything else it would have gotten 
+        reset to English. The code must be run without it going to the server, this can be done by having the code after #, that is, in the 
+        fragment section. The fragment section doesn't get sent to the server. Thus, we used the same payload as the one used in low difficulty 
+        but placed it in the fragment section.
+    e. In each case, the cookie was received on the server we had made at port 1337.
+3.  Inferences - 
+    a. Users are at significant risk when visiting pages vulnerable to DOM-based XSS, as malicious scripts can execute in their browsers without 
+        any server-side involvement.
+    b. The vulnerability resides entirely in the client-side code, making it harder to detect with traditional server-side defenses.
+    b. It can lead to severe consequences such as data theft, data manipulation, denial of service, malware distribution, etc.
+    c. Proper validation, sanitization, and encoding of user inputs on the client side are crucial to prevent DOM-based XSS.
+4.  Conclusion - 
+    a. DOM based XSS is used for Session hijacking, credential theft, data theft, malware distribution, keylogging, privilege escalation, etc.
+    b. DOM based XSS can be prevented by input sanitisation and validation, proper encoding of user inputs, Content Security Policy, regular 
+        security testing, secure URL handling, using secure libraries and framworks.
