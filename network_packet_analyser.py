@@ -30,6 +30,25 @@ def process_packet(packet):
         if 'UDP' in packet:
             udp_layer = packet['UDP']
             print(f"Source Port: {udp_layer.srcport}, Destination Port: {udp_layer.dstport}")
+
+        #Extracting and printing DNS queries
+        if 'DNS' in packet:
+            dns_layer = packet['DNS']
+            if hasattr(dns_layer, 'qry_name'):
+                print(f"DNS Query: {dns_layer.qry_name}")
+
+        #Extracting and printing HTTP requests
+        if 'HTTP' in packet:
+            http_layer = packet['HTTP']
+            if hasattr(http_layer, 'host'):
+                print(f"HTTP Request: {http_layer.host}{http_layer.path}")
+
+        #Extracting and printing HTTPS requests (SSL/TLS layer)
+        if 'SSL' in packet or 'TLS' in packet:
+            ssl_layer = packet['SSL'] if 'SSL' in packet else packet['TLS']
+            if hasattr(ssl_layer, 'handshake_extensions_server_name'):
+                print(f"HTTPS Request: {ssl_layer.handshake_extensions_server_name}")
+
             
     except AttributeError as e:
         # Handle packets that may not have the expected attributes
