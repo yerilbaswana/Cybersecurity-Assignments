@@ -1,1 +1,20 @@
+1.  Topic - Blind SQLi: Find the version of the SQL database software being used.
+2.  Observations - 
+    a. For every security level, SQLmap was used to automate the identification of payload and exploitation using it.
+    b. SQLmap used boolean based SQLi to get information about the database such as the number of columns and their names, user info, etc.
+    c. It also gave a time based SQLi payload which can be used to get further information about the database. Delay in response time due to 
+        time based SQLi payloads signifies that the server is processing the request and hence success.
+    d. In each case, it was possible to get the SQL database software and it's version which was MySQL 5.0.12(MariaDB fork).
+3.  Inferences - 
+    a. The application is vulnerable to blind SQL injection since it processes SQL queries based on user input without proper sanitization 
+        and validation.
+    b. Both boolean-based and time-based techniques were effective in extracting information.
+    c. Blind SQli can be further extended to get information about the user and the password hashes being stored in the database. SQLmap can
+        also be used to crack these simple password hashes.
+4.  Conclusions - 
+    a. Blind SQLi vulnerabilities can have severe consequences such as data extraction, authentication bypass, data integrity comprise, 
+        privilege escalation, compliance violations, system comprimise, etc.
+    b. It can avoided by using parameterised or prepared queries, input sanitisation and validation, using secure frameworks, regular 
+        security tesing and audits, etc.
+
 
