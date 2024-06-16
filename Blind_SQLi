@@ -1,4 +1,4 @@
-#Task - Blind SQL injection: Find the version of the SQL database software through a blind SQL injection.
+#Task - Blind SQL injection: Find the version of the SQL database software being used.
 
 #For this assignment, SQLmap is going to be used. SQLmap automates identification and exploitation of SQL injection
 #vulnerabilities, ultimately gaining control over database servers.
